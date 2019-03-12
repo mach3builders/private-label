@@ -1,0 +1,56 @@
+{
+    "name": "mach3builders/privatelabel",
+    "description": "Everything needed for a private label",
+    "keywords": [
+        "mach3builders"
+    ],
+    "homepage": "https://github.com/mach3builders/private-label",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Jasper Helmich",
+            "email": "j.helmich@mach3builders.nl",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "5.8.*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "3.8.*",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mach3builders\\PrivateLabel\\": "src"
+        },
+        "files": [
+            "helpers/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mach3builders\\PrivateLabel\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mach3builders\\PrivateLabel\\PrivateLabelServiceProvider"
+            ],
+            "aliases": {
+                "PrivateLabel": "Mach3builders\\PrivateLabel\\Facades\\PrivateLabel"
+            }
+        }
+    }
+}
