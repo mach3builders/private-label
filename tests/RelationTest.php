@@ -15,8 +15,9 @@ class RelationTest extends TestCase
 
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
 
-        Company::create(['name' => 'Jaspers Bedrijf']);
-        Label::create(['company_id' => 1]);
+
+        $c = Company::create(['name' => 'Jaspers Bedrijf']);
+        $c->label()->save(Label::create());
     }
 
     protected function getEnvironmentSetUp($app)
@@ -31,9 +32,14 @@ class RelationTest extends TestCase
         $this->assertInstanceOf(Label::class, private_label());
     }
 
-    public function test_model_relation()
+    public function test_model_relation_is_instance_of_has_one()
     {
         $this->assertInstanceOf(BelongsTo::class, private_label()->company());
+    }
+
+    public function test_model_relation()
+    {
+        dd(private_label()->company);
     }
 }
 
