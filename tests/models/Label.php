@@ -7,7 +7,8 @@ use Mach3builders\PrivateLabel\PrivateLabel;
 class Label extends PrivateLabel
 {
     protected $fillable = [
-        'company_id'
+        'company_id',
+        'domain',
     ];
 
     public function company()

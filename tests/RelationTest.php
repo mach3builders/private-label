@@ -2,6 +2,7 @@
 
 namespace Mach3builders\PrivateLabel\Tests;
 
+use Mach3builders\PrivateLabel\PrivateLabel;
 use Mach3builders\PrivateLabel\Tests\Models\Label;
 use Mach3builders\PrivateLabel\Tests\Models\Company;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -16,8 +17,12 @@ class RelationTest extends TestCase
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
 
 
-        $c = Company::create(['name' => 'Jaspers Bedrijf']);
-        $c->label()->save(Label::create());
+        $this->company = Company::create(['name' => 'Jaspers Bedrijf']);
+
+        Label::create([
+            'company_id' => 1,
+            'domain' => 'http://domain.test',
+        ]);
     }
 
     protected function getEnvironmentSetUp($app)
@@ -39,7 +44,7 @@ class RelationTest extends TestCase
 
     public function test_model_relation()
     {
-        dd(private_label()->company);
+        $this->assertEquals($this->company->name, private_label()->company->name);
     }
 }
 

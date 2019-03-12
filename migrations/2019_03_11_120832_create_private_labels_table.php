@@ -15,11 +15,11 @@ class CreatePrivateLabelsTable extends Migration
     {
         Schema::create('private_labels', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('domain');
-            $table->string('email');
-            $table->string('logo');
-            $table->string('favicon');
+            $table->string('name')->nullable();
+            $table->string('domain')->nullable();
+            $table->string('email')->nullable();
+            $table->string('logo')->nullable();
+            $table->string('favicon')->nullable();
             $table->timestamps();
         });
     }
