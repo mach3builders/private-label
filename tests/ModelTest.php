@@ -11,19 +11,18 @@ class ModelTest extends TestCase
         parent::setUp();
 
         PrivateLabel::create([
-            'relation_id' => 1,
             'name' => 'Testing name',
             'domain' => 'http://domain.test',
             'email' => 'Testing email',
             'logo' => 'Testing logo',
             'favicon' => 'Testing favicon',
         ]);
-
     }
 
-    public function test_model_has_relation()
+    public function test_relation_property()
     {
-        $private_label = PrivateLabel::first();
-        dd($private_label->relation());
+        $label = private_label('company');
+
+        dd($label);
     }
 }

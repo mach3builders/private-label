@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class PrivateLabel extends Model
 {
     protected $fillable = [
-        'relation_id',
         'name',
         'domain',
         'email',
@@ -15,8 +14,15 @@ class PrivateLabel extends Model
         'favicon'
     ];
 
-    public function relation()
+    public function company()
     {
-        return $this->belongsTo(config('private-label.relation', 'App\User'), 'relation_id');
+        return collect([1,2,3]);
     }
+
+
+    public static function getByDomain()
+    {
+        return self::where('domain', $_SERVER['HTTP_HOST'])->first();
+    }
+
 }

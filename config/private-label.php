@@ -11,7 +11,4 @@ return [
         'logo' => 'assets/logo/logo.png',
         'favicon' => 'assets/favicon/favicon.png'
     ],
-
-    // Define the relation ship model that hasOne by the private label
-    'relation' => 'App\User',
 ];

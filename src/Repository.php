@@ -16,14 +16,9 @@ class Repository
         $this->default_label = config('private-label.default');
     }
 
-    protected function getDomain()
-    {
-        return $_SERVER['HTTP_HOST'];
-    }
-
     protected function getLabel()
     {
-        return BaseModel::where('domain', $this->getDomain())->first();
+        return BaseModel::getByDomain();
     }
 
     public function get($param)

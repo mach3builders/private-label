@@ -15,7 +15,6 @@ class CreatePrivateLabelsTable extends Migration
     {
         Schema::create('private_labels', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('relation_id');
             $table->string('name');
             $table->string('domain');
             $table->string('email');
