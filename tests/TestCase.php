@@ -22,8 +22,6 @@ abstract class TestCase extends BaseTestCase
             'logo' => 'assets/logo/logo.png',
             'favicon' => 'assets/favicon/favicon.png'
         ]);
-
-        $app['config']->set('private-label.relation', 'App\User');
     }
 
     protected function getPackageProviders($app)

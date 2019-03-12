@@ -14,15 +14,8 @@ class PrivateLabel extends Model
         'favicon'
     ];
 
-    public function company()
-    {
-        return collect([1,2,3]);
-    }
-
-
     public static function getByDomain()
     {
-        return self::where('domain', $_SERVER['HTTP_HOST'])->first();
+        return self::firstOrNew(['domain' => $_SERVER['HTTP_HOST']], config('private-label.default'));
     }
-
 }

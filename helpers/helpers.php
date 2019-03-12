@@ -5,5 +5,5 @@ function private_label($key = null) {
         return app('private-label');
     }
 
-    return app('private-label')->get($key);
+    return app('private-label')->$key;
 }

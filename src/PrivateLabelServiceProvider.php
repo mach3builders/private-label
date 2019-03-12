@@ -31,7 +31,25 @@ class PrivateLabelServiceProvider extends ServiceProvider
 
         // Register the main class to use with the facade
         $this->app->singleton('private-label', function () {
-            return new Repository;
+            return self::getPrivateLabelModel()->getByDomain();
         });
+    }
+
+    public static function determinePrivateLabelModel(): string
+    {
+        $privateLabel = config('private-label.model') ?? PrivateLabel::class;
+
+        if (! is_a($privateLabel, PrivateLabel::class, true)) {
+            return 'Config model is not valid';
+        }
+
+        return $privateLabel;
+    }
+
+    public static function getPrivateLabelModel()
+    {
+        $privateLabelModelClassName = self::determinePrivateLabelModel();
+
+        return new $privateLabelModelClassName();
     }
 }
