@@ -14,7 +14,6 @@ abstract class TestCase extends BaseTestCase
 
     protected function getEnvironmentSetUp($app)
     {
-        // Setup default database to use sqlite :memory:
         $app['config']->set('private-label.default', [
             'name' => 'Mach3builders',
             'domain' => 'sandbox.test',

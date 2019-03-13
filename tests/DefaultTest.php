@@ -2,6 +2,9 @@
 
 namespace Mach3builders\PrivateLabel\Tests;
 
+use Mach3builders\PrivateLabel\Facades\PrivateLabel;
+
+
 class DefaultTest extends TestCase
 {
     protected function setUp(): void

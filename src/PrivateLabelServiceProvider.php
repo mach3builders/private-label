@@ -26,10 +26,8 @@ class PrivateLabelServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__.'/../config/private-label.php', 'private-label');
 
-        // Register the main class to use with the facade
         $this->app->singleton('private-label', function () {
             return self::getPrivateLabelModel()->getByDomain();
         });

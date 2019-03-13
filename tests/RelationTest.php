@@ -16,7 +16,6 @@ class RelationTest extends TestCase
 
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
 
-
         $this->company = Company::create(['name' => 'Jaspers Bedrijf']);
 
         Label::create([
