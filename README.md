@@ -1,11 +1,5 @@
-# Very short description of the package
-
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/mach3builders/private-label.svg?style=flat-square)](https://packagist.org/packages/mach3builders/private-label)
-[![Build Status](https://img.shields.io/travis/mach3builders/private-label/master.svg?style=flat-square)](https://travis-ci.org/mach3builders/private-label)
-[![Quality Score](https://img.shields.io/scrutinizer/g/mach3builders/private-label.svg?style=flat-square)](https://scrutinizer-ci.com/g/mach3builders/private-label)
-[![Total Downloads](https://img.shields.io/packagist/dt/mach3builders/private-label.svg?style=flat-square)](https://packagist.org/packages/mach3builders/private-label)
-
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+# Private-label
+Useful package for setting up a private-label environment inside a laravel app.
 
 ## Installation
 
@@ -17,9 +11,23 @@ composer require mach3builders/private-label
 
 ## Usage
 
+After installation publish the config.
+Inside the config you can set your own model, as long it extends the Packages model
+
+#### Helpers
+
+After installation you can use the following helper
+
 ``` php
-// Usage description here
+<p>{{ private_label('name') }}</p>
+
+@if (private_label()->logo)
+    <img src="{{ private_label()->logo }}" alt="">
+@endif
+
+Winkelwagen voor: {{ private_label()->company->name }}
 ```
+The helper supports relations aswell
 
 ### Testing
 
@@ -27,22 +35,9 @@ composer require mach3builders/private-label
 composer test
 ```
 
-### Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-### Security
-
-If you discover any security related issues, please email j.helmich@mach3builders.nl instead of using the issue tracker.
-
 ## Credits
 
 - [Jasper Helmich](https://github.com/mach3builders)
-- [All Contributors](../../contributors)
 
 ## License
 
